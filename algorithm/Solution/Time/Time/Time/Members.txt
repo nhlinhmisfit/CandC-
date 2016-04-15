@@ -1,0 +1,14 @@
+Code		Name
+gpv001	WireMan
+GPVIT002	WirelessMan
+GPVIT003	IronMan
+GPVIT004	MetalMan
+GPVIT005	SilverMan
+GPVIT006	GoldMan
+GPVIT007	SteelMan
+GPVIT008	AlminiumMan
+GPVIT009	StainlessMan
+GPVIT010	UltraMan
+GPVIT011	BigMan
+GPVIT012	SuperMan
+GPVIT013	MouseMan

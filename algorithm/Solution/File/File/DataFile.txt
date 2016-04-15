@@ -1,0 +1,56 @@
+<Line>
+	<Line>
+		<FirstName> hdfhfd </FirstName>
+		<LastName> hfdhfdh </LastName>
+	</Line>
+	<Line>
+		<Code>hdfhfdh</Code>
+		<Login>hfdhfdh</Login>
+	</Line>
+
+</Line>
+
+parsing: 
+step1:
+	
+	<Line>
+		<FirstName> </FirstName>
+		<LastName> </LastName>
+	</Line>
+
+	<Line>
+		<Code></Code>
+		<Login></Login>
+	</Line>
+
+step2:
+	Line>
+		<FirstName> </FirstName>
+		<LastName> </LastName>
+	</Line>
+
+
+	and 
+	<Line>
+		<Code></Code>
+		<Login></Login>
+	</Line>
+
+step3:
+<line>
+	<FirstName> </FirstName>
+	<LastName> </LastName>
+
+	and
+
+	<Code></Code>
+	<Login></Login>
+	</line>
+step 4:
+	values of first name
+	values of last name
+
+	values of code
+	values of login
+
+step n: if file have more tag

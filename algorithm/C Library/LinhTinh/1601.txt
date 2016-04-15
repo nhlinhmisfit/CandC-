@@ -1,0 +1,109 @@
+// if you understand Tree, try to make directory tree
+// next week : i dont know 19-20day
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef	struct _node{
+	char	name[80];
+	int		type; //0:seperator, 1:dir, 2:file
+	int		isDir;
+	int		isFile;
+	int		isSeperator;
+	struct _node	*left, *right;
+}DT;
+
+int Print(DT *node){
+	if( node == NULL )	return 1;
+	printf("%s", node->name);
+	Print(node->left);
+	Print(node->right);
+	return 0;
+}
+int main( void ){
+	char	path[10][80]={0};
+	int	sp=0;//-1
+	char	buffer[80]={0};
+
+	while(1){
+		printf(">");
+		gets(buffer);
+		if( buffer[0] ){
+			if( strcmp(buffer,"..")==0){
+				sp-=2;
+				if(sp<0)sp=0;
+			}else{
+				strcpy( path[sp++], buffer );
+				strcpy( path[sp++], "\\");
+			}
+		}
+
+		{
+			int i;
+			for(i=0;i<sp;++i)	printf("%s", path[i]);
+		}
+	}
+
+	return 0;
+}
+int main_200( void ){
+	char	buffer[512]={0};
+	char	command[80]={0};
+	char	arg[80]={0};
+	char path[512]={"C:\\"};
+
+	while(1){
+		printf("%s>",path);
+		gets(buffer);
+		sscanf(buffer,"%s %s", command, arg);
+		if( strcmp(command,"cd")==0 ){
+			strcat(path, arg);
+			strcat(path,"\\");
+			if( strcmp(arg,"..")==0){
+				// POP
+			}
+		}
+	}
+
+	return 0;
+}
+int main_100( void ){
+	DT	*root;
+	DT	*temp;
+	root = (DT*)malloc( sizeof(DT) );
+	root->left = root->right = NULL;
+	root->type = 1;
+	root->isDir= 1;
+	strcpy( root->name, "C:");
+	{
+		DT *pt;
+		pt = (DT*)calloc( 1, sizeof(DT) );
+		pt->isSeperator = 1;
+		strcpy(pt->name, "\\");
+		root->left = pt;
+	}
+
+	temp = root->left;
+	{
+		DT *pt;
+		pt = (DT*)calloc( 1, sizeof(DT) );
+		pt->isFile = 1;
+		pt->type = 2;
+		strcpy(pt->name, "handsOn.exe");
+		temp->right = pt;
+	}
+
+	temp = temp->right;
+	{
+		DT *pt;
+		pt = (DT*)calloc( 1, sizeof(DT) );
+		pt->isDir = 1;
+		pt->type = 1;
+		strcpy(pt->name, "Practice");
+		temp->left = pt;
+	}
+
+	Print(root);
+	return 0;
+}
